@@ -53,7 +53,33 @@ const concatenateArrays = <T>(...arr: T[]) => {
   return arr.flat();
 };
 
-console.log(
-  concatenateArrays(["a", "b"], ["c", "d"]),
-  concatenateArrays([1, 2], [3, 4], [5],[234]),
-);
+// console.log(
+//   concatenateArrays(["a", "b"], ["c", "d"]),
+//   concatenateArrays([1, 2], [3, 4], [5],[234]),
+// );
+
+/**
+ * ! PROBLEM 5
+ */
+
+interface Course {
+  title: string;
+  students: number;
+  isPublished: boolean;
+}
+
+const getPopularCourses = (courses:Course[], minStudents: number) => {
+  return courses.filter(course=>
+    course.isPublished === true &&
+    course.students >= minStudents,
+  );
+
+};
+const courses: Course[] = [
+  { title: "TypeScript Mastery", students: 120, isPublished: true },
+  { title: "Draft Course", students: 200, isPublished: false },
+  { title: "Basic HTML", students: 45, isPublished: true },
+  { title: "Next.js Pro", students: 85, isPublished: true },
+];
+
+console.log(getPopularCourses(courses,80));
