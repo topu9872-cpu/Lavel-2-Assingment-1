@@ -68,12 +68,10 @@ interface Course {
   isPublished: boolean;
 }
 
-const getPopularCourses = (courses:Course[], minStudents: number) => {
-  return courses.filter(course=>
-    course.isPublished === true &&
-    course.students >= minStudents,
+const getPopularCourses = (courses: Course[], minStudents: number) => {
+  return courses.filter(
+    (course) => course.isPublished === true && course.students >= minStudents,
   );
-
 };
 const courses: Course[] = [
   { title: "TypeScript Mastery", students: 120, isPublished: true },
@@ -82,4 +80,20 @@ const courses: Course[] = [
   { title: "Next.js Pro", students: 85, isPublished: true },
 ];
 
-console.log(getPopularCourses(courses,80));
+// console.log(getPopularCourses(courses,80));
+
+/**
+ * ! PROBLEM 6
+ */
+
+const pluckValues = <T, K extends keyof T>(items: T[], key: K) => {
+  return items.map((i) => i[key]);
+};
+
+const users = [
+  { id: 1, name: "Rakib", role: "Admin" },
+  { id: 2, name: "Sadia", role: "Editor" },
+  { id: 3, name: "Tariq", role: "Subscriber" },
+];
+
+console.log(pluckValues(users, "name"), pluckValues(users, "id"));
