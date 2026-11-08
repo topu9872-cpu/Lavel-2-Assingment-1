@@ -34,7 +34,7 @@ const processInput = (value: unknown) => {
  * ! PROBLEM 3
  */
 
-const formatCoordinate = ([latitude, longitude, locationName]: [
+const formatCoordinate = ([latitude, longitude, locationName]: readonly [
   number,
   number,
   string,
@@ -135,3 +135,19 @@ const manager2 = new Manager("Mehedi", 300, "Engineer");
 // console.log(manager.getDetails());
 // console.log(manager2.getRoleInfo());
 // console.log(manager2.getDetails());
+
+/**
+ * ! PROBLEM 8
+ */
+
+const validateAgeAsync = (age: number): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    if (age >= 18) {
+      setTimeout(() => resolve("Access Granted"), 1000);
+    } else {
+      reject(new Error("Access Denied: Must be 18 or older"));
+    }
+  });
+};
+
+console.log(await validateAgeAsync(29).catch((err) => err.message));
