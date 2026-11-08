@@ -96,4 +96,42 @@ const users = [
   { id: 3, name: "Tariq", role: "Subscriber" },
 ];
 
-console.log(pluckValues(users, "name"), pluckValues(users, "id"));
+// console.log(pluckValues(users, "name"), pluckValues(users, "id"));
+
+/**
+ * ! PROBLEM 7
+ */
+
+class Employee {
+  constructor(
+    protected name: string,
+    private baseSalary: number,
+  ) {}
+  get BaseSalary(): number {
+    return this.baseSalary;
+  }
+}
+
+class Manager extends Employee {
+  constructor(
+    name: string,
+    baseSalary: number,
+    private department: string,
+  ) {
+    super(name, baseSalary);
+  }
+  getDetails(): string {
+    return `Employee:${this.name}, Base Salary:${this.BaseSalary}`;
+  }
+  getRoleInfo(): string {
+    return `Manager of ${this.department}: ${this.name}`;
+  }
+}
+
+const manager = new Manager("Topu", 300, "Engineer");
+const manager2 = new Manager("Mehedi", 300, "Engineer");
+
+// console.log(manager.getRoleInfo());
+// console.log(manager.getDetails());
+// console.log(manager2.getRoleInfo());
+// console.log(manager2.getDetails());
