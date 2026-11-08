@@ -25,7 +25,23 @@ const processInput = (value: unknown) => {
   }
 };
 
-console.log(processInput("            TYPESCRIPT "));
-console.log(processInput(7));
-console.log(processInput(true));
-console.log(processInput(false));
+// console.log(processInput("            TYPESCRIPT "));
+// console.log(processInput(7));
+// console.log(processInput(true));
+// console.log(processInput(false));
+
+/**
+ * ! PROBLEM 3
+ */
+
+const formatCoordinate = ([latitude, longitude, locationName]: [
+  number,
+  number,
+  string,
+]) => {
+  return `Location: ${locationName} (${latitude}, ${longitude})`;
+};
+
+// Sample Input:
+console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
+console.log(formatCoordinate([22.35, 91.78, "Chittagong"]));
